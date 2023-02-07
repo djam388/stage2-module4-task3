@@ -4,21 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TextComponent extends AbstractTextComponent {
-    protected List<AbstractTextComponent> componentList = new ArrayList<>();;
+    protected List<AbstractTextComponent> componentList = new ArrayList<>();
+
     private int size = 0;
 
-    private String string;
-
-    public TextComponent(TextComponentType componentType, String string) {
+    public TextComponent(TextComponentType componentType) {
         super(componentType);
-        this.string = string;
-
     }
 
     @Override
     public String operation() {
-
-        return null;
+        String stringValue = null;
+        for (AbstractTextComponent textComponent : componentList) {
+            stringValue += textComponent.operation();
+        }
+        return stringValue;
     }
 
     @Override
