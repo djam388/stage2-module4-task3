@@ -14,11 +14,12 @@ public class TextComponent extends AbstractTextComponent {
 
     @Override
     public String operation() {
-        String stringValue = null;
+        StringBuilder stringValue = new StringBuilder();
         for (AbstractTextComponent textComponent : componentList) {
-            stringValue += textComponent.operation();
+
+            stringValue.append(textComponent.operation() != null ? textComponent.operation() : "");
         }
-        return stringValue;
+        return stringValue.toString();
     }
 
     @Override
