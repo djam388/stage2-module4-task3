@@ -10,7 +10,7 @@ public class ChainParserBuilder {
     }
 
     public ChainParserBuilder setParser(AbstractTextParser abstractTextParser) {
-        if (parsers.size() > 0) {
+        if (parsers.size() > 0 && abstractTextParser != null) {
             parsers.get(parsers.size() - 1).setNextParser(abstractTextParser);
         }
         parsers.add(abstractTextParser);
